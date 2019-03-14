@@ -11,6 +11,4 @@ export type ActionsType<ActionCreaters extends object> = {
 export type ActionType<
   ActionCreaters extends object,
   Actions = ActionsType<ActionCreaters>
-> = {
-  [Key in keyof Actions]: Actions[Key] extends AnyAction ? Actions[Key] : never
-}[keyof Actions]
+> = { [Key in keyof Actions]: Actions[Key] }[keyof Actions]

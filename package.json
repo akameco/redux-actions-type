@@ -1,0 +1,57 @@
+{
+  "name": "redux-actions-type",
+  "version": "0.0.0",
+  "description": "easy typing of redux action",
+  "license": "MIT",
+  "repository": "akameco/redux-actions-type",
+  "author": "akameco <akameco.t@gmail.com> (https://akameco.github.io)",
+  "files": [
+    "dest"
+  ],
+  "main": "dest/index.js",
+  "types": "dest/index.d.ts",
+  "keywords": [
+    "redux",
+    "type",
+    "typing",
+    "action",
+    "action-creater"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "contributors:add": "all-contributors add",
+    "prebuild": "del dest",
+    "build": "tsc",
+    "prepublish": "yarn build && del dest/**/*.test.*",
+    "fmt": "prettier --write '**/*.{ts,js,json,md}'",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "test:ci": "jest --coverage --ci --runInBand"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@akameco/tsconfig": "^0.1.1",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.3",
+    "all-contributors-cli": "^6.1.2",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.15.1",
+    "eslint-config-precure": "^4.10.1",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "redux": "^4.0.1",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "redux": "*"
+  }
+}

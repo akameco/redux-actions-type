@@ -33,7 +33,7 @@ export const decrement = (payload: number) => ({
 })
 ```
 
-actionType.ts
+types.ts
 
 ```ts
 import { ActionType, ActionsType } from 'redux-actions-type'

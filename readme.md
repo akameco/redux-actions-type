@@ -31,15 +31,23 @@ export const decrement = (payload: number) => ({
   type: 'decrement' as 'decrement',
   payload,
 })
+
+export const typo = (payload: string) => ({
+  // typo...
+  typo: 'typo' as 'typo',
+  payload,
+})
 ```
 
 types.ts
 
 ```ts
+import { Reducer } from 'redux'
 import { ActionType, ActionsType } from 'redux-actions-type'
 import * as actions from './actions'
 
 /**
+ * @example
  * type Action = {
  *   type: "increment";
  *   payload: number;
@@ -48,21 +56,23 @@ import * as actions from './actions'
  *   payload: number;
  * }
  */
-export type Action = ActionType<typeof actions>
+type Action = ActionType<typeof actions>
 
 /**
+ * @example
  * type Actions = {
- *   increment: {
+ *   inc: {
  *     type: "increment";
  *     payload: number;
- *   };
- *   decrement: {
- *     type: "decrement";
- *     payload: number;
- *   };
+ *  };
+ *  decrement: {
+ *    type: "decrement";
+ *    payload: number;
+ *  };
+ *  typo: never;
  * }
  */
-export type Actions = ActionsType<typeof actions>
+type Actions = ActionsType<typeof actions>
 
 /**
  * type IncrementAction = {
@@ -71,6 +81,27 @@ export type Actions = ActionsType<typeof actions>
  * }
  */
 type IncrementAction = Actions['increment']
+
+interface State {
+  count: number
+}
+
+const reducer: Reducer<State, Action> = (
+  state = { count: 0 },
+  action: Action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + action.payload }
+    case 'decrement':
+      return { count: state.count - action.payload }
+    // Type Error...
+    // case 'typo':
+    //   return { count: action.payload }
+    default:
+      return state
+  }
+}
 ```
 
 ## Contributors

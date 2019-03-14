@@ -11,13 +11,13 @@ const decrement = (payload: number) => ({
   payload,
 })
 
-const hello = (payload: string) => ({
+const typo = (payload: string) => ({
   // typo...
-  tye: 'hello' as 'hello',
+  typo: 'typo' as 'typo',
   payload,
 })
 
-const actions = { increment, decrement, hello }
+const actions = { increment, decrement, typo }
 
 /**
  * @example
@@ -30,7 +30,7 @@ const actions = { increment, decrement, hello }
  *    type: "decrement";
  *    payload: number;
  *  };
- *  hello: never;
+ *  typo: never;
  * }
  */
 type Actions = ActionsType<typeof actions>
@@ -78,7 +78,7 @@ const reducer: Reducer<State, Action> = (
     case 'decrement':
       return { count: state.count - action.payload }
     // Type Error...
-    // case 'hello':
+    // case 'typo':
     //   return { count: action.payload }
     default:
       return state

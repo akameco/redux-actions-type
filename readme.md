@@ -52,7 +52,7 @@ export type Action = ActionType<typeof actions>
 
 /**
  * type Actions = {
- *   inc: {
+ *   increment: {
  *     type: "increment";
  *     payload: number;
  *   };

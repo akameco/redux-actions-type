@@ -1,3 +1,4 @@
+import { Reducer } from 'redux'
 import { ActionType, ActionsType } from '.'
 
 const increment = (payload: number) => ({
@@ -11,7 +12,8 @@ const decrement = (payload: number) => ({
 })
 
 const hello = (payload: string) => ({
-  type: 'hello' as 'hello',
+  // typo...
+  tye: 'hello' as 'hello',
   payload,
 })
 
@@ -28,10 +30,7 @@ const actions = { increment, decrement, hello }
  *    type: "decrement";
  *    payload: number;
  *  };
- *  hello: {
- *    type: "hello";
- *    payload: string;
- *  };
+ *  hello: never;
  * }
  */
 type Actions = ActionsType<typeof actions>
@@ -44,9 +43,6 @@ type Actions = ActionsType<typeof actions>
  * } | {
  *   type: "decrement";
  *   payload: number;
- * } | {
- *   type: "hello";
- *   payload: string;
  * }
  */
 type Action = ActionType<typeof actions>
@@ -66,4 +62,29 @@ test('type check', () => {
   const action3: IncrementAction = { type: 'increment', payload: 1 }
   expect(action1).toStrictEqual(action2)
   expect(action1).toStrictEqual(action3)
+})
+
+interface State {
+  count: number
+}
+
+const reducer: Reducer<State, Action> = (
+  state = { count: 0 },
+  action: Action
+) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + action.payload }
+    case 'decrement':
+      return { count: state.count - action.payload }
+    // Type Error...
+    // case 'hello':
+    //   return { count: action.payload }
+    default:
+      return state
+  }
+}
+
+test('type check with reducer', () => {
+  expect(reducer({ count: 1 }, increment(10))).toStrictEqual({ count: 11 })
 })

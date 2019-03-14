@@ -55,19 +55,19 @@ export type Action = ActionType<typeof actions>
  *   inc: {
  *     type: "increment";
  *     payload: number;
- *  };
- *  decrement: {
- *    type: "decrement";
- *    payload: number;
- *  };
+ *   };
+ *   decrement: {
+ *     type: "decrement";
+ *     payload: number;
+ *   };
  * }
  */
 export type Actions = ActionsType<typeof actions>
 
 /**
  * type IncrementAction = {
- *  type: "increment";
- *  payload: number;
+ *   type: "increment";
+ *   payload: number;
  * }
  */
 type IncrementAction = Actions['increment']

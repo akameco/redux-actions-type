@@ -2,18 +2,18 @@ import { Reducer } from 'redux'
 import { ActionType, ActionsType } from '.'
 
 const increment = (payload: number) => ({
-  type: 'increment' as 'increment',
+  type: 'increment' as const,
   payload,
 })
 
 const decrement = (payload: number) => ({
-  type: 'decrement' as 'decrement',
+  type: 'decrement' as const,
   payload,
 })
 
 const typo = (payload: string) => ({
   // typo...
-  typo: 'typo' as 'typo',
+  typo: 'typo' as const,
   payload,
 })
 

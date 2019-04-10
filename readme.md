@@ -23,18 +23,18 @@ actions.ts
 
 ```ts
 export const increment = (payload: number) => ({
-  type: 'increment' as 'increment',
+  type: 'increment' as const,
   payload,
 })
 
 export const decrement = (payload: number) => ({
-  type: 'decrement' as 'decrement',
+  type: 'decrement' as const,
   payload,
 })
 
 export const typo = (payload: string) => ({
   // typo...
-  typo: 'typo' as 'typo',
+  typo: 'typo' as const,
   payload,
 })
 ```

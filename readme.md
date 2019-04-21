@@ -22,21 +22,24 @@ $ yarn add redux-actions-type
 actions.ts
 
 ```ts
-export const increment = (payload: number) => ({
-  type: 'increment' as const,
-  payload,
-})
+export const increment = (payload: number) =>
+  ({
+    type: 'increment',
+    payload,
+  } as const)
 
-export const decrement = (payload: number) => ({
-  type: 'decrement' as const,
-  payload,
-})
+export const decrement = (payload: number) =>
+  ({
+    type: 'decrement',
+    payload,
+  } as const)
 
-export const typo = (payload: string) => ({
-  // typo...
-  typo: 'typo' as const,
-  payload,
-})
+export const typo = (payload: string) =>
+  ({
+    // typo...
+    typo: 'typo',
+    payload,
+  } as const)
 ```
 
 types.ts

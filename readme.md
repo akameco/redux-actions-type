@@ -10,11 +10,11 @@
 ## Install
 
 ```
-$ npm install -D redux-actions-type
+$ npm install redux-actions-type
 ```
 
 ```
-$ yarn add --dev redux-actions-type
+$ yarn add redux-actions-type
 ```
 
 ## Usage

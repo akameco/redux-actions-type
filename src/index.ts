@@ -1,14 +1,14 @@
 import { AnyAction } from 'redux'
 
-export type ActionsType<ActionCreaters extends object> = {
-  [Key in keyof ActionCreaters]: ActionCreaters[Key] extends (
+export type ActionsType<ActionCreators extends object> = {
+  [Key in keyof ActionCreators]: ActionCreators[Key] extends (
     ...args: any[]
   ) => AnyAction
-    ? ReturnType<ActionCreaters[Key]>
+    ? ReturnType<ActionCreators[Key]>
     : never
 }
 
 export type ActionType<
-  ActionCreaters extends object,
-  Actions = ActionsType<ActionCreaters>
+  ActionCreators extends object,
+  Actions = ActionsType<ActionCreators>
 > = { [Key in keyof Actions]: Actions[Key] }[keyof Actions]

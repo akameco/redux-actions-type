@@ -1,4 +1,3 @@
-import { Reducer } from 'redux'
 import { ActionType, ActionsType } from '.'
 
 const increment = (payload: number) =>
@@ -67,14 +66,11 @@ test('type check', () => {
   expect(action1).toStrictEqual(action3)
 })
 
-interface State {
+type State = {
   count: number
 }
 
-const reducer: Reducer<State, Action> = (
-  state = { count: 0 },
-  action: Action
-) => {
+export const reducer = (state: State = { count: 0 }, action: Action): State => {
   switch (action.type) {
     case 'increment':
       return { count: state.count + action.payload }

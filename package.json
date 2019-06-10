@@ -1,6 +1,6 @@
 {
   "name": "redux-actions-type",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "easy typing of redux action",
   "license": "MIT",
   "repository": "akameco/redux-actions-type",

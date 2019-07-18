@@ -38,8 +38,8 @@
   "devDependencies": {
     "@akameco/tsconfig": "^0.2.0",
     "@types/jest": "^24.0.15",
-    "@types/node": "^12.6.2",
-    "all-contributors-cli": "^6.7.0",
+    "@types/node": "^12.6.8",
+    "all-contributors-cli": "^6.8.0",
     "del-cli": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-precure": "^4.17.0",
